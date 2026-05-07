@@ -1,5 +1,5 @@
 -- Integrantes do Grupo --
 
-Caio Henrique
-Felipe Mendonça
-Nayara Justiniano
+Caio Henrique\n
+Felipe Mendonça\n
+Nayara Justiniano\n
