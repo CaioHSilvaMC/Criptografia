@@ -1,7 +1,7 @@
--- Integrantes do Grupo --
+Integrantes do Grupo:
 
-- Caio Henrique
+Caio Henrique;
 
-- Felipe Mendonça
+Felipe Mendonça;
 
-- Nayara Justiniano
+Nayara Justiniano;
