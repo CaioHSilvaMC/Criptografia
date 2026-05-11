@@ -14,24 +14,17 @@ def defina_d (z):
         if mdc(z, d) == 1:
             return d
 
-#Pega uma frase, coloca na tabela ASCII e criptogtafa em RSA 
+# Pega uma frase, coloca na tabela UTF-8 e criptografa em RSA
 def criptografar(frase, e, n):
-    textoCriptografado = []
 
-    for letra in frase:
-        fraseAscii = ord(letra)
-        #Pesquisei como fazer essa conta em Python
-        criptografado = pow(fraseAscii, e, n)
+    # transforma a frase em bytes UTF-8
+    bytes_utf8 = frase.encode("utf-8")
 
-        textoCriptografado.append(criptografado)
+    # criptografa cada byte
+    textoCriptografado = [pow(byte, e, n) for byte in bytes_utf8]
 
     return textoCriptografado
 
 #Transforma o Vetor em uma sequência de números
 def criarSequencia(textoC):
-    textoFinal = ""
-
-    for num in textoC:
-        textoFinal += str(num)
-
-    return textoFinal
+    return ",".join(map(str, textoC))
