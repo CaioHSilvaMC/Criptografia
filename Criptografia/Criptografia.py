@@ -41,6 +41,9 @@ if op == 1:
     #Chama a função que torna o vetor em uma sequência numérica
     textoFinal = criarSequencia(textoCriptografado)
 
+    with open("cifrado.rsa", "w") as f:
+        f.write(textoFinal)
+
     #Exibe resultado final
     print("Texto criptografado: ", textoFinal)
 
