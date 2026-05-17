@@ -9,7 +9,7 @@ def mdc (z, d):
 #Gera um valor aleatório para D
 def defina_d (z):
     while True:
-        d = random.randint(1,100000)
+        d = random.randint(2, z-1)
 
         if mdc(z, d) == 1:
             return d
