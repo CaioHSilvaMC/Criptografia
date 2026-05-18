@@ -27,25 +27,27 @@ if op == 1:
 
     print ("Valor de Z: ", z)
     #Chama a função para gerar o D
-    d = defina_d(z)
+    #Chama a função para gerar o D  
+    try:
+        d = defina_d(z)
+  
+        #Calculo para encontrar o valor de E (Pesquisei como fazer o cálculo de E)
+        e = pow(d, -1, z)
 
-    #Calculo para encontrar o valor de E (Pesquisei como fazer o cálculo de E)
-    e = pow(d, -1, z)
+        print("Chave Pública (N e E): ", n, " e ", e)
+        print("Chave Privada (N e D): ", n, " e ", d)
 
-    print("Chave Pública (N e E): ", n, " e ", e)
-    print("Chave Privada (N e D): ", n, " e ", d)
+        #Chama a função para transformar em uma sequência numérica em ASCII
+        textoCriptografado = criptografar(frase, e, n)
 
-    #Chama a função para transformar em uma sequência numérica em ASCII
-    textoCriptografado = criptografar(frase, e, n)
+        #Chama a função que torna o vetor em uma sequência numérica
+        textoFinal = criarSequencia(textoCriptografado)
 
-    #Chama a função que torna o vetor em uma sequência numérica
-    textoFinal = criarSequencia(textoCriptografado)
-
-    with open("cifrado.rsa", "w") as f:
-        f.write(textoFinal)
-
-    #Exibe resultado final
-    print("Texto criptografado: ", textoFinal)
+        #Exibe resultado final
+        print("Texto criptografado: ", textoFinal)
+    except ValueError as erro:
+        print(erro)
+        exit()
 
 elif op == 2:
     frase = input("Digite a frase que será criptografada: \n")
@@ -67,23 +69,28 @@ elif op == 2:
     z = (p-1)*(q-1)
 
     print ("Valor de Z: ", z)
-    #Chama a função para gerar o D
-    d = defina_d(z)
 
-    #Calculo para encontrar o valor de E (Pesquisei como fazer o cálculo de E)
-    e = pow(d, -1, z)
+    #Chama a função para gerar o D  
+    try:
+        d = defina_d(z)
+  
+        #Calculo para encontrar o valor de E (Pesquisei como fazer o cálculo de E)
+        e = pow(d, -1, z)
 
-    print("Chave Pública (N e E): ", n, " e ", e)
-    print("Chave Privada (N e D): ", n, " e ", d)
+        print("Chave Pública (N e E): ", n, " e ", e)
+        print("Chave Privada (N e D): ", n, " e ", d)
 
-    #Chama a função para transformar em uma sequência numérica em ASCII
-    textoCriptografado = criptografar(frase, e, n)
+        #Chama a função para transformar em uma sequência numérica em ASCII
+        textoCriptografado = criptografar(frase, e, n)
 
-    #Chama a função que torna o vetor em uma sequência numérica
-    textoFinal = criarSequencia(textoCriptografado)
+        #Chama a função que torna o vetor em uma sequência numérica
+        textoFinal = criarSequencia(textoCriptografado)
 
-    #Exibe resultado final
-    print("Texto criptografado: ", textoFinal)
+        #Exibe resultado final
+        print("Texto criptografado: ", textoFinal)
+    except ValueError as erro:
+        print(erro)
+        exit()
 
 else:
     print("Opção Inválida...")
